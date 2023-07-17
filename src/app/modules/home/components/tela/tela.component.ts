@@ -17,7 +17,16 @@ export class TelaComponent implements OnInit{
   constructor(private service: CarServiceService){}
 
   public cadastraCarro(marca: string, placa: string, ano: string, tipo: string){
-    this.service.addCarros(marca, placa, parseInt(ano), tipo);
+    if (this.service.indiceEditar !== -1) {
+      const indice = this.service.indiceEditar;
+      this.service.listaCarros[indice].marca = marca;
+      this.service.listaCarros[indice].placa = placa;
+      this.service.listaCarros[indice].ano = parseInt(ano);
+      this.service.listaCarros[indice].tipo = tipo;
+      this.service.indiceEditar = -1; // Resetar o índice de edição
+    } else {
+      this.service.addCarros(marca, placa, parseInt(ano), tipo);
+    }
     this.marca = "";
     this.placa = "";
     this.tipo = "";
@@ -25,26 +34,19 @@ export class TelaComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.service.emitEvent.subscribe({
-    });
-
     this.service.emitMarca.subscribe((marca: string) => {
-      // Faça o que precisa com o novo alerta
       this.marca = marca;
     });
 
     this.service.emitPlaca.subscribe((placa: string) => {
-      // Faça o que precisa com o novo alerta
       this.placa = placa;
     });
 
     this.service.emitAno.subscribe((ano: number) => {
-      // Faça o que precisa com o novo alerta
       this.ano = ano;
     });
 
     this.service.emitTipo.subscribe((tipo: string) => {
-      // Faça o que precisa com o novo alerta
       this.tipo = tipo;
     });
   

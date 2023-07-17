@@ -15,6 +15,7 @@ export class CarServiceService {
   public emitPlaca = new EventEmitter();
   public emitAno = new EventEmitter();
   public emitTipo = new EventEmitter();
+  public indiceEditar: number = -1;
 
   public listaCarros: Array<Carros> = [
     {marca: "RENAULT", placa: "AAA0000", tipo: "luxo", ano: 2015},
@@ -38,6 +39,7 @@ export class CarServiceService {
   }
 
   public clickEditar(carro: any){
+    this.indiceEditar = this.listaCarros.indexOf(carro);
     this.marca = carro.marca;
     this.placa = carro.placa;
     this.ano = carro.ano;
