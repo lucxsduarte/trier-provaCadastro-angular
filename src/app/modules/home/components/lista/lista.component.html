@@ -1,0 +1,25 @@
+<div class="boxLista">
+    <fieldset>
+        <legend>Carros Cadastrados</legend>
+        <table border="1" cellSpacing="0">
+            <tr class="centraliza">
+                <td><b>Marca</b></td>
+                <td><b>Placa</b></td>
+                <td><b>Ano</b></td>
+                <td><b>Tipo</b></td>
+                <td><b>Ações</b></td>
+            </tr>
+            <tr *ngFor="let carro of listaCarros; let i = index"  class="centraliza">
+                <td>{{carro.marca}}</td>
+                <td>{{carro.placa}}</td>
+                <td>{{carro.ano}}</td>
+                <td [ngClass]="{'Popular': carro.tipo === 'Popular', 'Luxo': carro.tipo === 'Luxo', 'Carga': carro.tipo === 'Carga'}">{{carro.tipo}}</td>
+                <td class="alinhaBotao">
+                <button (click)="deleteItem(i)">Deletar</button>
+                <br><br>
+                <button (click)="clickEditar(carro)">Editar</button>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</div>

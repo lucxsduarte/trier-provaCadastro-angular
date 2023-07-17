@@ -1,0 +1,29 @@
+<div class="boxCadastro">
+    <fieldset>
+        <legend>Cadastre o veículo</legend>
+        <br>
+        <label for="marca">Marca: </label>
+        <input type="text" placeholder="Digite a marca" [(ngModel)]="marca" #inputMarca required>
+        <br><br>
+        <label for="placa">Placa: </label>
+        <input type="text" placeholder="AAA0000" [(ngModel)]="placa" #inputPlaca required>
+        <br><br>
+        <label for="ano">Ano: </label>
+        <input type="number" [(ngModel)]="ano" #inputAno required>
+        <br><br>
+        <span>Tipo: </span>
+        <input type="radio" id="popular" name="tipo" [(ngModel)]="tipo" value="Popular" #inputPop>
+        <label for="popular">Popular</label>
+        <input type="radio" id="luxo" name="tipo" [(ngModel)]="tipo" value="Luxo" #inputLuxo>
+        <label for="luxo">Luxo</label>
+        <input type="radio" id="carga" name="tipo" [(ngModel)]="tipo" value="Carga" #inputCarga>
+        <label for="carga">Carga</label>
+        <br><br>
+        <div>
+            <button (click)="cadastraCarro(inputMarca.value, inputPlaca.value, inputAno.value, inputPop.checked ? inputPop.value : inputLuxo.checked ? inputLuxo.value : inputCarga.value )" class="button">
+                Salvar
+            </button>
+        </div>
+    </fieldset>
+</div>
+<br>

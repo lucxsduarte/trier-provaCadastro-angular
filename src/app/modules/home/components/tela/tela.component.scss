@@ -1,0 +1,40 @@
+.boxCadastro {
+    width: 100%;
+}
+
+legend {
+    text-align: center;
+}
+
+button {
+    display: block;
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid #818181;
+    letter-spacing: 2px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #111;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+}
+
+input[type="radio"] {
+    width: 10%;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
