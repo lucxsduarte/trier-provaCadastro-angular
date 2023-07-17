@@ -46,7 +46,6 @@ export class CarServiceService {
     this.emitPlaca.emit(this.placa);
     this.emitAno.emit(this.ano);
     this.emitTipo.emit(this.tipo);
-    
   }
   
   constructor() { }
